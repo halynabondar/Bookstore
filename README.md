@@ -14,5 +14,8 @@ The backend provides a RESTful API powered by Rails and PostgreSQL, while the fr
 ## Features
 
 ## Tech Stack
+- React
+- Ruby on Rails
+- PostgreSQL
 
 ## Screenshots
