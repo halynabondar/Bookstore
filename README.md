@@ -1,5 +1,9 @@
-# Bookstore
-## Fullstack online bookstore built with React &amp; Ruby on Rails, featuring authentication, shopping cart, and order management.
+# 📚 Bookstore
+
+## Overview
+
+**Bookstore** is a fullstack online bookstore built with **React** (frontend) and **Ruby on Rails** (backend).  
+It simulates a modern e-commerce experience where users can browse, purchase, and manage books with ease.
 
 Bookstore is a fullstack web application developed with React (frontend) and Ruby on Rails (backend).
 It simulates a modern online bookstore where users can:
