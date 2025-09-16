@@ -16,8 +16,16 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - 📱 **Responsive UI** for desktop and mobile
 
 ## Tech Stack
+**Frontend:**
 - React
-- Ruby on Rails
+- React Router
+
+**Backend:**
+- Ruby on Rails (API mode)
 - PostgreSQL
+
+**Other:**
+- GitHub Actions (CI/CD)
+- Docker
 
 ## Screenshots
