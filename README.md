@@ -29,3 +29,10 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - Docker
 
 ## Screenshots
+
+## Getting Started
+
+### Prerequisites
+- Node.js & npm/yarn
+- Ruby & Rails
+- PostgreSQL  
