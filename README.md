@@ -36,3 +36,9 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - Node.js & npm/yarn
 - Ruby & Rails
 - PostgreSQL  
+
+### Installation
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/yourusername/bookstore.git
+   cd bookstore
