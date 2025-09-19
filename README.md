@@ -16,15 +16,18 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - 📱 **Responsive UI** for desktop and mobile
 
 ## Tech Stack
+
 **Frontend:**
+
 - React
 - React Router
 
 **Backend:**
+
 - Ruby on Rails (API mode)
-- PostgreSQL
 
 **Other:**
+
 - GitHub Actions (CI/CD)
 - Docker
 
@@ -33,12 +36,29 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js & npm/yarn
 - Ruby & Rails
-- PostgreSQL  
 
 ### Installation
+
 1. **Clone the repo**
    ```bash
    git clone https://github.com/yourusername/bookstore.git
    cd bookstore
+   ```
+
+2. **Backend setup**
+   ```bash
+   cd backend
+   bundle install
+   rails db:create db:migrate
+   rails server
+   ```
+
+3. **Frontend setup**
+   ```bash
+   cd frontend
+   npm install
+   npm start
+   ```
