@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --brand-500: 68 99 255;
-  --brand-600: 52 78 234;
+  --color-primary-500: 6 164 140; /* #06A48C */
+  --color-primary-600: 7 128 108; /* #07806C */
+  --color-text: 16 19 19;         /* #101313 */
+  --color-surface: 255 255 255;   /* #FFFFFF */
+
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -15,12 +18,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.dark {
+  --color-text: 249 252 251;    /* #F9FCFB */
+  --color-surface: 16 17 17;    /* #101111 */
 }
 
-@media (prefers-color-scheme: light) {}
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: rgb(var(--color-surface) / 1);
+  color: rgb(var(--color-text) / 1);
+}
+
+::selection {
+  background: rgba(var(--color-primary-500) / 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--color-primary-500) / 1);
+  outline-offset: 2px;
+}
