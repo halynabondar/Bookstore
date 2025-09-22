@@ -5,8 +5,8 @@
 :root {
   --color-primary-500: 6 164 140; /* #06A48C */
   --color-primary-600: 7 128 108; /* #07806C */
-  --color-text: 16 19 19;         /* #101313 */
-  --color-surface: 255 255 255;   /* #FFFFFF */
+  --color-text: 16 19 19; /* #101313 */
+  --color-surface: 255 255 255; /* #FFFFFF */
 
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -19,11 +19,13 @@
 }
 
 .dark {
-  --color-text: 249 252 251;    /* #F9FCFB */
-  --color-surface: 16 17 17;    /* #101111 */
+  --color-text: 249 252 251; /* #F9FCFB */
+  --color-surface: 16 17 17; /* #101111 */
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
