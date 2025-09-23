@@ -62,7 +62,7 @@ export default {
           muted: '#F7F8F8',
           dark: '#0F1111',
         },
-        text: {
+        textс: {
           DEFAULT: '#101313',
           muted: '#5B6160',
           onDark: '#F9FCFB',
@@ -93,6 +93,5 @@ export default {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/line-clamp'),
   ],
 }
