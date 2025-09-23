@@ -3,43 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --color-primary-500: 6 164 140; /* #06A48C */
-  --color-primary-600: 7 128 108; /* #07806C */
+  --color-primary-light: 6 164 140; /* #06A48C */
+  --color-primary-dark: 7 128 108; /* #07806C */
   --color-text: 16 19 19; /* #101313 */
   --color-surface: 255 255 255; /* #FFFFFF */
-
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.dark {
-  --color-text: 249 252 251; /* #F9FCFB */
-  --color-surface: 16 17 17; /* #101111 */
 }
 
 html,
 body,
 #root {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  background: rgb(var(--color-surface) / 1);
-  color: rgb(var(--color-text) / 1);
+  @apply font-sans antialiased text-base text-gray-900;
 }
 
 ::selection {
-  background: rgba(var(--color-primary-500) / 0.25);
-}
-
-:focus-visible {
-  outline: 2px solid rgb(var(--color-primary-500) / 1);
-  outline-offset: 2px;
+  background: rgba(var(--color-primary-dark) / 0.25);
 }
