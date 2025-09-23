@@ -16,6 +16,11 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
   globalIgnores(['dist', 'build', 'node_modules', 'coverage']),
+
+  js.configs.recommended,
+  eslintConfigPrettier,
+  tailwind.configs['flat/recommended'],
+
   {
     files: ['src/**/*.{js,jsx}'],
     plugins: {
@@ -27,11 +32,6 @@ export default defineConfig([
       import: importPlugin,
       tailwind,
     },
-    extends: [
-      js.configs.recommended,
-      eslintConfigPrettier,
-      'plugin:tailwindcss/recommended',
-    ],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -45,7 +45,7 @@ export default defineConfig([
         alias: { map: [['@', './src']], extensions: ['.js', '.jsx'] },
       },
       tailwindcss: {
-        callees: ['classnames', 'clsx', 'ctl'], // якщо користуєшся ними
+        callees: ['classnames', 'clsx', 'ctl'],
         config: 'tailwind.config.js',
       },
     },
@@ -55,30 +55,19 @@ export default defineConfig([
       ...(reactHooks.configs['recommended-latest']?.rules ?? {}),
       ...(jsxA11y.configs.recommended?.rules ?? {}),
 
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/react-in-jsx-scope': 'off',
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'import/order': [
-        'warn',
-        { 'newlines-between': 'always', alphabetize: { order: 'asc' } },
-      ],
+      'import/order': ['warn', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
       'import/no-unresolved': 'error',
       'prettier/prettier': 'warn',
-
-      // Tailwind конкретні
       'tailwindcss/classnames-order': 'warn',
       'tailwindcss/no-custom-classname': 'warn',
     },
   },
   {
     files: ['src/**/*.{test,spec}.jsx', 'src/setupTests.js'],
-    plugins: {
-      'testing-library': testingLibrary,
-      'jest-dom': jestDom,
-    },
+    plugins: { 'testing-library': testingLibrary, 'jest-dom': jestDom },
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -99,16 +88,8 @@ export default defineConfig([
     },
   },
   {
-    files: [
-      '*.config.js',
-      'vite.config.js',
-      'tailwind.config.js',
-      'postcss.config.js',
-      'eslint.config.js',
-    ],
+    files: ['*.config.js', 'vite.config.js', 'tailwind.config.js', 'postcss.config.js', 'eslint.config.js'],
     languageOptions: { globals: globals.node },
-    rules: {
-      'import/no-unresolved': 'off',
-    },
+    rules: { 'import/no-unresolved': 'off' },
   },
 ])
