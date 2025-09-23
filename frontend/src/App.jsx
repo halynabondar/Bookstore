@@ -1,9 +1,9 @@
-import './App.css'
+import Navbar from './components/Navbar.jsx'
 
 function App() {
   return (
     <>
-      <h1>Bookstore</h1>
+      <Navbar />
     </>
   )
 }
