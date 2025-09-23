@@ -55,10 +55,16 @@ export default defineConfig([
       ...(reactHooks.configs['recommended-latest']?.rules ?? {}),
       ...(jsxA11y.configs.recommended?.rules ?? {}),
 
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
       'react/react-in-jsx-scope': 'off',
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-      'import/order': ['warn', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+      'import/order': [
+        'warn',
+        { 'newlines-between': 'always', alphabetize: { order: 'asc' } },
+      ],
       'import/no-unresolved': 'error',
       'prettier/prettier': 'warn',
       'tailwindcss/classnames-order': 'warn',
@@ -88,7 +94,13 @@ export default defineConfig([
     },
   },
   {
-    files: ['*.config.js', 'vite.config.js', 'tailwind.config.js', 'postcss.config.js', 'eslint.config.js'],
+    files: [
+      '*.config.js',
+      'vite.config.js',
+      'tailwind.config.js',
+      'postcss.config.js',
+      'eslint.config.js',
+    ],
     languageOptions: { globals: globals.node },
     rules: { 'import/no-unresolved': 'off' },
   },
