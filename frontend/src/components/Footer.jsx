@@ -5,8 +5,8 @@ export default function Footer({ navList, footerList }) {
   return (
     <footer className="bg-dark-100 text-primary-dark">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:p-10">
-        <div className="gap-14 md:grid md:grid-cols-2">
-          <div className="space-y-8 md:col-span-1">
+        <div className="flex justify-around gap-14 md:flex-row flex-col">
+          <div className="w-full md:w-1/2 space-y-8">
             <div>
               <a
                 href="/"
@@ -18,13 +18,13 @@ export default function Footer({ navList, footerList }) {
             <h2 className="font-sans text-4xl text-primary-dark">
               Start Your Empowering Reading Adventure
             </h2>
-            <button className="flex gap-2 rounded-2xl bg-primary-dark px-3 py-2 text-textc-onDark transition duration-300 hover:bg-primary-light">
+            <button type="button" className="flex gap-2 rounded-2xl bg-primary-dark px-3 py-2 text-textc-onDark transition duration-300 hover:bg-primary-light">
               Contact us
               <ArrowForwardIcon />
             </button>
           </div>
-          <div className="mt-10 grid grid-cols-2 gap-2 md:mt-0">
-            <div>
+          <div className="flex gap-14 flex-row md:justify-between">
+            <div className='w-full md:w-1/2 space-y-8'>
               <h3 className="font-mono text-lg font-bold leading-none text-primary-dark">
                 Quick Links
               </h3>
@@ -39,7 +39,7 @@ export default function Footer({ navList, footerList }) {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className='w-full md:w-1/2'>
               <ul className="space-y-2">
                 {footerList.map(item => (
                   <li
