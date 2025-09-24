@@ -1,5 +1,5 @@
 import Footer from './components/Footer.jsx'
-import MainImage from './components/HeroImage.jsx'
+import HeroImage from './components/HeroImage.jsx'
 import Navbar from './components/Navbar.jsx'
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar navList={navList} />
-      <MainImage />
+      <HeroImage />
       <main className="mx-auto max-w-7xl"></main>
       <Footer navList={navList} footerList={footerList} />
     </>
