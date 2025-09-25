@@ -1,6 +1,7 @@
 import Footer from './components/Footer.jsx'
 import HeroImage from './components/HeroImage.jsx'
 import Navbar from './components/Navbar.jsx'
+import {useEffect} from "react";
 
 function App() {
   const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us']
@@ -14,6 +15,13 @@ function App() {
     'Return Policy',
     'Coming Soon',
   ]
+
+    useEffect(() => {
+        const api = import.meta.env.VITE_API_URL;
+        fetch(`${api}/books`)
+            .then((res) => res.json())
+            .then((data) => console.log("Books:", data));
+    }, []);
 
   return (
     <>

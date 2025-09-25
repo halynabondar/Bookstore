@@ -79,8 +79,21 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: <%= ENV.fetch("DB_POOL", 10) %>
-  url: <%= ENV["DATABASE_URL"] %>
-  prepared_statements: <%= ENV.fetch("PG_PREPARED_STATEMENTS", "false") == "true" %>
+  default: &prod_defaults
+    adapter: postgresql
+    encoding: unicode
+    pool: <%= ENV.fetch("DB_POOL", 10) %>
+    url: <%= ENV["DATABASE_URL"] %>
+    prepared_statements: <%= ENV.fetch("PG_PREPARED_STATEMENTS", "false") == "true" %>
+
+  primary:
+    <<: *prod_defaults
+
+  cable:
+    <<: *prod_defaults
+
+  queue:
+    <<: *prod_defaults
+
+  cache:
+    <<: *prod_defaults
