@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Bookstore** is a fullstack online bookstore built with **React** (frontend) and **Ruby on Rails** (backend).  
+**Bookstore** is a fullstack online bookstore built with **React** (Vite) on the frontend and **Ruby on Rails** (API mode) on the backend.  
 It simulates a modern e-commerce experience where users can browse, purchase, and manage books with ease.
 
 ## ✨ Features
@@ -13,14 +13,16 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - 📦 **Order management** — place and track orders
 - 👤 **Authentication & profiles** — sign up, log in and manage user account
 - 🔒 **Secure backend** with JWT authentication
-- 📱 **Responsive UI** for desktop and mobile
+- 📱 **Responsive UI** with TailwindCSS and MUI
 
 ## Tech Stack
 
 **Frontend:**
 
-- React
-- React Router
+- React (Vite)
+- React Router DOM v7
+- TailwindCSS
+- MUI
 
 **Backend:**
 
@@ -30,8 +32,9 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 
 - GitHub Actions (CI/CD)
 - Docker
+- ESLint & Prettier
 
-## Screenshots
+[//]: # (## Screenshots)
 
 ## Getting Started
 
