@@ -1,20 +1,16 @@
-import Footer from './components/Footer.jsx'
-import HeroImage from './components/HeroImage.jsx'
-import Navbar from './components/Navbar.jsx'
-import {useEffect} from "react";
+import { Routes, Route } from "react-router-dom";
+import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import Navbar from './components/Navbar.jsx';
+import { useEffect } from "react";
+import Books from "./pages/Books.jsx";
 
-function App() {
-  const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us']
-  const footerList = [
-    'Style Guide',
-    'Licesing',
-    'Changelog',
-    'Error 404',
-    'Password',
-    'Privacy Policy',
-    'Return Policy',
-    'Coming Soon',
-  ]
+export default function App() {
+    const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us'];
+    const footerList = [
+        'Style Guide','Licesing','Changelog','Error 404','Password',
+        'Privacy Policy','Return Policy','Coming Soon',
+    ];
 
     useEffect(() => {
         const api = import.meta.env.VITE_API_URL;
@@ -23,14 +19,16 @@ function App() {
             .then((data) => console.log("Books:", data));
     }, []);
 
-  return (
-    <>
-      <Navbar navList={navList} />
-      <HeroImage />
-      <main className="mx-auto max-w-7xl"></main>
-      <Footer navList={navList} footerList={footerList} />
-    </>
-  )
+    return (
+        <>
+            <Navbar navList={navList} />
+            <main className="mx-auto max-w-7xl">
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/books" element={<Books />} />
+                </Routes>
+            </main>
+            <Footer navList={navList} footerList={footerList} />
+        </>
+    );
 }
-
-export default App
