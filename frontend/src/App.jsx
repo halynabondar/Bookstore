@@ -1,34 +1,41 @@
-import { Routes, Route } from "react-router-dom";
-import Footer from './components/Footer.jsx';
-import Home from './pages/Home.jsx';
-import Navbar from './components/Navbar.jsx';
-import { useEffect } from "react";
-import Books from "./pages/Books.jsx";
+import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+
+import Footer from './components/Footer.jsx'
+import Navbar from './components/Navbar.jsx'
+import Books from './pages/Books.jsx'
+import Home from './pages/Home.jsx'
 
 export default function App() {
-    const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us'];
-    const footerList = [
-        'Style Guide','Licesing','Changelog','Error 404','Password',
-        'Privacy Policy','Return Policy','Coming Soon',
-    ];
+  const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us']
+  const footerList = [
+    'Style Guide',
+    'Licesing',
+    'Changelog',
+    'Error 404',
+    'Password',
+    'Privacy Policy',
+    'Return Policy',
+    'Coming Soon',
+  ]
 
-    useEffect(() => {
-        const api = import.meta.env.VITE_API_URL;
-        fetch(`${api}/books`)
-            .then((res) => res.json())
-            .then((data) => console.log("Books:", data));
-    }, []);
+  useEffect(() => {
+    const api = import.meta.env.VITE_API_URL
+    fetch(`${api}/books`)
+      .then(res => res.json())
+      .then(data => console.log('Books:', data))
+  }, [])
 
-    return (
-        <>
-            <Navbar navList={navList} />
-            <main className="mx-auto max-w-7xl">
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/books" element={<Books />} />
-                </Routes>
-            </main>
-            <Footer navList={navList} footerList={footerList} />
-        </>
-    );
+  return (
+    <>
+      <Navbar navList={navList} />
+      <main className="mx-auto max-w-7xl">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/books" element={<Books />} />
+        </Routes>
+      </main>
+      <Footer navList={navList} footerList={footerList} />
+    </>
+  )
 }
