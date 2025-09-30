@@ -3,8 +3,11 @@ import { Routes, Route } from 'react-router-dom'
 
 import Footer from './components/Footer.jsx'
 import Navbar from './components/Navbar.jsx'
-import Books from './pages/Books.jsx'
 import Home from './pages/Home.jsx'
+import Shop from './pages/Shop.jsx'
+import About from './pages/About.jsx'
+import Blog from './pages/Blog.jsx'
+import ContactUs from './pages/ContactUs.jsx'
 
 export default function App() {
   const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us']
@@ -32,7 +35,10 @@ export default function App() {
       <main className="">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/books" element={<Books />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </main>
       <Footer navList={navList} footerList={footerList} />

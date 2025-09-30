@@ -25,7 +25,7 @@ export default function Home() {
             Find the best books for you.
           </p>
           <button
-            onClick={() => navigate('/books')}
+            onClick={() => navigate('/shop')}
             className="mt-4 flex items-center gap-2 self-start rounded-2xl bg-primary-dark px-6 py-2 text-white transition duration-300 hover:bg-primary-light"
           >
             Shop now <AutoStoriesIcon />
