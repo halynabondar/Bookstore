@@ -7,9 +7,9 @@ on:
       - "frontend/**"
       - ".github/workflows/ci-frontend.yml"
   pull_request:
-     paths:
-        - "frontend/**"
-        - ".github/workflows/ci-frontend.yml"
+    paths:
+      - "frontend/**"
+      - ".github/workflows/ci-frontend.yml"
   workflow_dispatch:
 
 jobs:
@@ -34,7 +34,9 @@ jobs:
       - name: Lint
         run: npm run lint --if-present
 
-      # Vitest у CI: без watch, з фейлом при будь-якій помилці
+      - name: Prettier
+        run: npm run prettier:check --if-present
+
       - name: Test (Vitest + coverage)
         run: npm run test:coverage --if-present || npx vitest run --coverage --reporter=default
         env:
