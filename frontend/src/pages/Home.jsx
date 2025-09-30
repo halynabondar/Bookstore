@@ -5,9 +5,9 @@ export default function Home() {
   const navigate = useNavigate()
 
   return (
-    <section className="relative h-screen w-full">
+    <section className="relative w-screen h-screen overflow-hidden">
       <img
-        className="size-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover"
         src="/main/hero4.webp"
         alt="Book"
       />

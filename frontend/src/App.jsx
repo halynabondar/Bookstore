@@ -29,7 +29,7 @@ export default function App() {
   return (
     <>
       <Navbar navList={navList} />
-      <main className="mx-auto max-w-7xl">
+      <main className="">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/books" element={<Books />} />
