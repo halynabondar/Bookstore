@@ -1,0 +1,86 @@
+name: Backend CI (Rails + Postgres)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci-backend.yml"
+  pull_request:
+    paths:
+      - "backend/**"
+      - ".github/workflows/ci-backend.yml"
+  workflow_dispatch:
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+
+    # Rails tests need Postgres because your adapter is postgresql
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: app_test
+        ports:
+          - "5432:5432"
+        # Wait for DB to be healthy before running rails
+        options: >-
+          --health-cmd="pg_isready -U postgres"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    defaults:
+      run:
+        working-directory: backend
+
+    env:
+      RAILS_ENV: test
+      # Rails will pick this up automatically and override test DB config
+      DATABASE_URL: postgres://postgres:postgres@localhost:5432/app_test
+      # Test suite reads credentials
+      # RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+          working-directory: backend
+
+      - name: System deps (pg client headers)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev
+
+      # RUBOCOP — Ruby/Rails style & lint
+      - name: Rubocop
+        run: bundle exec rubocop
+        continue-on-error: true
+
+      # BRAKEMAN — security static analysis for Rails
+      - name: Brakeman (security)
+        run: bundle exec brakeman -q -w2
+
+      # Prepare DB (create + migrate). Works with structure.sql too.
+      - name: DB prepare (create & migrate)
+        run: bundle exec rails db:prepare
+
+      # RSpec (only run if there are specs)
+      - name: RSpec
+        if: ${{ hashFiles('backend/spec/**/*') != '' }}
+        run: bundle exec rspec --format progress
+
+      - name: Upload coverage
+        uses: actions/upload-artifact@v4
+        with:
+           name: backend-coverage
+           path: backend/coverage
+           if-no-files-found: ignore
