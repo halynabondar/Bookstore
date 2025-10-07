@@ -19,14 +19,16 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 
 **Frontend:**
 
-- React (Vite)
+- React
 - React Router DOM v7
+- Vite
 - TailwindCSS
 - MUI
 
 **Backend:**
 
-- Ruby on Rails (API mode)
+- Ruby on Rails
+- PostgreSQL
 
 **Other:**
 
