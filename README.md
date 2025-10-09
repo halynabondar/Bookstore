@@ -20,7 +20,7 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 **Frontend:**
 
 - React
-- React Router DOM v7
+- React Router DOM
 - Vite
 - TailwindCSS
 - MUI
@@ -32,18 +32,12 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 
 **Other:**
 
-- GitHub Actions (CI/CD)
-- Docker
+- GitHub Actions
 - ESLint & Prettier
 
 [//]: # (## Screenshots)
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js & npm/yarn
-- Ruby & Rails
 
 ### Installation
 
