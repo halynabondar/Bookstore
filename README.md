@@ -35,7 +35,7 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 - GitHub Actions
 - ESLint & Prettier
 
-[//]: # (## Screenshots)
+## Screenshots
 
 ## Getting Started
 
