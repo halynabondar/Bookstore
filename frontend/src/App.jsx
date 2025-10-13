@@ -24,7 +24,7 @@ export default function App() {
     { name: 'About', path: '/about' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact us', path: '/contact' },
-  ];
+  ]
 
   const footerList = [
     'Style Guide',
