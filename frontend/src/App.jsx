@@ -10,7 +10,22 @@ import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
 
 export default function App() {
-  const navList = ['Books', 'Shop', 'About', 'Blog', 'Contact us']
+  const navList = [
+    {
+      name: 'Books',
+      children: [
+        { name: 'Fiction', path: '/books/fiction' },
+        { name: 'Non-Fiction', path: '/books/non-fiction' },
+        { name: 'Science', path: '/books/science' },
+        { name: 'Fantasy', path: '/books/fantasy' },
+      ],
+    },
+    { name: 'Shop', path: '/shop' },
+    { name: 'About', path: '/about' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact us', path: '/contact' },
+  ];
+
   const footerList = [
     'Style Guide',
     'Licesing',
