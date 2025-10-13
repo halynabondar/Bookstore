@@ -45,10 +45,9 @@ export default function App() {
   }, [])
 
   return (
-    <div className='flex flex-col min-h-screen'>
-      {/* Sticky navbar */}
+    <div className="flex min-h-screen flex-col">
       <Navbar navList={navList} />
-      <main className="flex-grow">
+      <main className="grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
@@ -57,7 +56,6 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
         </Routes>
       </main>
-      {/* 🔚 Sticky footer */}
       <Footer navList={navList} footerList={footerList} />
     </div>
   )
