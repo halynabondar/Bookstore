@@ -1,5 +1,6 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 
 export default function Footer({ navList, footerList }) {
   return (
@@ -33,12 +34,14 @@ export default function Footer({ navList, footerList }) {
               </h3>
               <ul className="mt-4 space-y-2">
                 {navList.map(item => (
-                  <li
-                    key={item}
-                    className="cursor-pointer text-primary-dark transition-colors duration-300 hover:text-secondary-dark"
-                  >
-                    {item}
-                  </li>
+                    <li key={item.name || item}>
+                      <Link
+                          to={item.path || '/'}
+                          className="cursor-pointer text-primary-dark transition-colors duration-300 hover:text-secondary-dark"
+                      >
+                        {item.name || item}
+                      </Link>
+                    </li>
                 ))}
               </ul>
             </div>
@@ -46,7 +49,7 @@ export default function Footer({ navList, footerList }) {
               <ul className="space-y-2">
                 {footerList.map(item => (
                   <li
-                    key={item}
+                    key={item.name || item}
                     className="cursor-pointer text-primary-dark transition-colors duration-300 hover:text-secondary-dark"
                   >
                     {item}
@@ -67,6 +70,13 @@ export default function Footer({ navList, footerList }) {
 }
 
 Footer.propTypes = {
-  navList: PropTypes.arrayOf(PropTypes.string).isRequired,
+  navList: PropTypes.arrayOf(
+      PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }),
+      ])
+  ).isRequired,
   footerList: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
