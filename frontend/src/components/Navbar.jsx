@@ -20,7 +20,7 @@ export default function Navbar({ navList }) {
   }
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 bg-dark-100 text-primary-dark shadow-md">
+    <nav className="sticky top-0 z-50 bg-dark-100 text-primary-dark shadow">
       {/* Compact top row */}
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
         <a
