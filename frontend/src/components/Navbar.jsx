@@ -1,6 +1,6 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -48,12 +48,14 @@ export default function Navbar({ navList }) {
                   >
                     {item.name}
                     <KeyboardArrowDownIcon
-                        sx={{
-                          fontSize: 20,
-                          transition: 'transform 0.2s',
-                          transform:
-                              dropdownOpen === item.name ? 'rotate(180deg)' : 'none',
-                        }}
+                      sx={{
+                        fontSize: 20,
+                        transition: 'transform 0.2s',
+                        transform:
+                          dropdownOpen === item.name
+                            ? 'rotate(180deg)'
+                            : 'none',
+                      }}
                     />
                   </button>
 
@@ -88,7 +90,7 @@ export default function Navbar({ navList }) {
         </ul>
 
         {/* Icons */}
-        <div className="hidden items-center gap-4 lg:gap-6 md:inline-flex">
+        <div className="hidden items-center gap-4 md:inline-flex lg:gap-6">
           <div className="flex gap-2 lg:gap-4">
             {/* User */}
             <button
@@ -176,12 +178,14 @@ export default function Navbar({ navList }) {
                     >
                       {item.name}
                       <KeyboardArrowDownIcon
-                          sx={{
-                            fontSize: 20,
-                            transition: 'transform 0.2s',
-                            transform:
-                                dropdownOpen === item.name ? 'rotate(180deg)' : 'none',
-                          }}
+                        sx={{
+                          fontSize: 20,
+                          transition: 'transform 0.2s',
+                          transform:
+                            dropdownOpen === item.name
+                              ? 'rotate(180deg)'
+                              : 'none',
+                        }}
                       />
                     </button>
 
