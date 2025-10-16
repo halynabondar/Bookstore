@@ -1,3 +1,9 @@
+import HeaderAbout from '../components/HeaderAbout.jsx'
+
 export default function About() {
-  return <h1>About</h1>
+  return (
+    <section>
+      <HeaderAbout />
+    </section>
+  )
 }
