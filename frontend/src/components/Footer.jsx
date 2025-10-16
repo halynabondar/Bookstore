@@ -6,7 +6,7 @@ export default function Footer({ navList, footerList }) {
   return (
     <footer className="bg-dark-100 text-primary-dark">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:p-10">
-        <div className="flex flex-col justify-around gap-14 md:flex-row">
+        <div className="flex flex-col justify-between gap-14 md:flex-row">
           <div className="w-full space-y-8 md:w-1/2">
             <div>
               <a
