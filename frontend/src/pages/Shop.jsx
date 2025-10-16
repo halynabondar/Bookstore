@@ -1,5 +1,5 @@
-import BooksList from '../components/BooksList.jsx'
-import Filter from '../components/Filter.jsx'
+// import BooksList from '../components/BooksList.jsx'
+// import Filter from '../components/Filter.jsx'
 import HeaderShop from '../components/HeaderShop.jsx'
 
 export default function Shop() {
