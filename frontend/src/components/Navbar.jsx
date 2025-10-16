@@ -1,5 +1,6 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
@@ -30,9 +31,9 @@ export default function Navbar({ navList }) {
           BookStore
         </a>
 
-        <ul className="hidden items-center gap-2 md:flex lg:gap-6">
+        <ul className="hidden items-center md:flex">
           {navList.map(item => (
-            <li key={item.name} className="relative">
+            <li key={item.name} className="relative text-nowrap">
               {item.children ? (
                 <div
                   className="relative"
@@ -46,6 +47,14 @@ export default function Navbar({ navList }) {
                     }`}
                   >
                     {item.name}
+                    <KeyboardArrowDownIcon
+                        sx={{
+                          fontSize: 20,
+                          transition: 'transform 0.2s',
+                          transform:
+                              dropdownOpen === item.name ? 'rotate(180deg)' : 'none',
+                        }}
+                    />
                   </button>
 
                   {/* Desktop menu */}
@@ -67,7 +76,7 @@ export default function Navbar({ navList }) {
               ) : (
                 <Link
                   to={item.path}
-                  className={`cursor-pointer rounded-md px-4 py-1 transition-colors duration-300 hover:bg-primary-dark/10 ${
+                  className={`cursor-pointer rounded-md px-4 py-2 transition-colors duration-300 hover:bg-primary-dark/10 ${
                     location.pathname === item.path ? 'font-bold underline' : ''
                   }`}
                 >
@@ -79,8 +88,8 @@ export default function Navbar({ navList }) {
         </ul>
 
         {/* Icons */}
-        <div className="hidden items-center gap-10 md:inline-flex">
-          <div className="flex gap-4">
+        <div className="hidden items-center gap-4 lg:gap-6 md:inline-flex">
+          <div className="flex gap-2 lg:gap-4">
             {/* User */}
             <button
               type="button"
@@ -155,7 +164,7 @@ export default function Navbar({ navList }) {
               <li key={item.name}>
                 {item.children ? (
                   <>
-                    {/* Dropdown для Books */}
+                    {/* Books Dropdown */}
                     <button
                       type="button"
                       onClick={() =>
@@ -166,6 +175,14 @@ export default function Navbar({ navList }) {
                       className="w-full rounded-md px-3 py-2 text-left font-semibold hover:bg-primary-dark/10"
                     >
                       {item.name}
+                      <KeyboardArrowDownIcon
+                          sx={{
+                            fontSize: 20,
+                            transition: 'transform 0.2s',
+                            transform:
+                                dropdownOpen === item.name ? 'rotate(180deg)' : 'none',
+                          }}
+                      />
                     </button>
 
                     {dropdownOpen === item.name && (
