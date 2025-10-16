@@ -9,8 +9,8 @@ export default function Shop() {
         <HeaderShop />
       </div>
       <div className="mx-auto max-w-7xl gap-16 px-4 py-6 sm:px-6 lg:p-10">
-        <Filter />
-        <BooksList />
+        {/*<Filter />*/}
+        {/*<BooksList />*/}
       </div>
     </section>
   )
