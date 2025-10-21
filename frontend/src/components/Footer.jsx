@@ -45,12 +45,15 @@ export default function Footer({ navList, footerList }) {
                 ))}
               </ul>
             </div>
-            <div className="w-full md:w-1/2">
+            <div className="w-full space-y-8 md:w-1/2">
+              <h3 className="whitespace-nowrap font-mono text-lg font-bold leading-none text-primary-dark">
+                Customer Area
+              </h3>
               <ul className="space-y-2">
                 {footerList.map(item => (
                   <li
                     key={item.name || item}
-                    className="cursor-pointer text-primary-dark transition-colors duration-300 hover:text-secondary-dark"
+                    className="cursor-pointer text-nowrap text-primary-dark transition-colors duration-300 hover:text-secondary-dark"
                   >
                     {item}
                   </li>
