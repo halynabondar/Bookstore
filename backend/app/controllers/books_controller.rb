@@ -5,6 +5,11 @@ class BooksController < ApplicationController
     render json: books
   end
 
+  def check
+    count = Book.count
+    render json: { books_in_db: count }
+  end
+
   # GET /books/:id
   def show
     book = Book.find(params[:id])
