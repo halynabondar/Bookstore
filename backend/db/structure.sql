@@ -1,4 +1,4 @@
-\restrict jhXckYcEgWfBfdy2WXiw88sr2Tde7BbkPkbIVN4Ifeit0gVWDqVOB7zt8u7tlxo
+\restrict rDJH8bEJAlKJc31YVFSYvsX17xv2wWbfURhThU0N3IQFOh8YBijLYrsZMpe7G1a
 
 -- Dumped from database version 16.10 (Homebrew)
 -- Dumped by pg_dump version 16.10 (Homebrew)
@@ -40,7 +40,11 @@ CREATE TABLE public.books (
     author character varying,
     price integer,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    genre character varying,
+    icon character varying,
+    average_review_score double precision,
+    number_of_review integer
 );
 
 
@@ -107,10 +111,11 @@ ALTER TABLE ONLY public.schema_migrations
 -- PostgreSQL database dump complete
 --
 
-\unrestrict jhXckYcEgWfBfdy2WXiw88sr2Tde7BbkPkbIVN4Ifeit0gVWDqVOB7zt8u7tlxo
+\unrestrict rDJH8bEJAlKJc31YVFSYvsX17xv2wWbfURhThU0N3IQFOh8YBijLYrsZMpe7G1a
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20251027113857'),
 ('20250925103443');
 
