@@ -1,3 +1,5 @@
+require 'devise'
+
 class User < ApplicationRecord
   # Devise modules for authentication
   devise :database_authenticatable, :registerable,
