@@ -78,9 +78,12 @@ jobs:
         if: ${{ hashFiles('backend/spec/**/*') != '' }}
         run: bundle exec rspec --format progress
 
+      - name: Verify Rails boots
+        run: bundle exec rails runner "puts '✅ Rails loaded successfully'"
+
       - name: Upload coverage
         uses: actions/upload-artifact@v4
         with:
-           name: backend-coverage
-           path: backend/coverage
-           if-no-files-found: ignore
+          name: backend-coverage
+          path: backend/coverage
+          if-no-files-found: ignore
