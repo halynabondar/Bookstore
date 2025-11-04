@@ -45,7 +45,6 @@ export default function SignInForm() {
       <div className="flex min-w-full flex-col items-center justify-center gap-4 rounded-2xl bg-dark-100 p-6 shadow-xl sm:min-w-[430px]">
         <img src="/icon4.png" alt="books" className="w-12" />
         <h2 className="text-3xl font-semibold text-dark-700">
-          {' '}
           Welcome to BookStore
         </h2>
         <p>Please sign in using the form below</p>
