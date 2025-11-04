@@ -3,13 +3,18 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 export default function Navbar({ navList }) {
   const [open, setOpen] = useState(false)
   const [dropdownOpen, setDropdownOpen] = useState(null)
   const location = useLocation()
   const closeTimeout = useRef(null)
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/SignIn')
+  }
 
   const handleMouseEnter = name => {
     if (closeTimeout.current) clearTimeout(closeTimeout.current)
@@ -113,6 +118,7 @@ export default function Navbar({ navList }) {
           <div>
             <button
               type="button"
+              onClick={handleClick}
               className="rounded-md border border-primary-dark bg-dark-100 px-4 py-1 transition duration-300 hover:border-primary-light hover:bg-primary-light hover:text-dark-100"
             >
               Sign in
