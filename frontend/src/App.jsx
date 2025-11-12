@@ -9,6 +9,8 @@ import Blog from './pages/Blog.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import Home from './pages/Home.jsx'
 import Shop from './pages/Shop.jsx'
+import SignInPage from './pages/SignInPage.jsx'
+import SignUpPage from './pages/SignUpPage.jsx'
 
 export default function App() {
   const navList = [
@@ -53,6 +55,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
         </Routes>
         <Subscribe />
       </main>
