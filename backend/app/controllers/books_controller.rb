@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
+  skip_before_action :authenticate_request, only: %i[index show check]
+
   # GET /books
   def index
-    books = Book.all.order(:id) # щоб був стабільний порядок
+    books = Book.all.order(:id)
     render json: books
   end
 
