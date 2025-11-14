@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::API
+  include ActionController::Cookies
+
   before_action :authenticate_request
 
   private
 
   def authenticate_request
-    header = request.headers['Authorization']
-    token = header.split(' ').last if header.present?
+    token = cookies.signed[:access_token]
+
+    if token.blank?
+      return render json: { error: 'Unauthorized' }, status: :unauthorized
+    end
 
     begin
       decoded = JWT.decode(token, Rails.application.credentials.secret_key_base).first

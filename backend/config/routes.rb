@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get '/check_books', to: 'books#check'
 
   namespace :api do
-      post '/login', to: 'sessions#create'
-      get '/profile', to: 'users#profile'
-      end
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+    get '/profile', to: 'users#profile'
+  end
 end
