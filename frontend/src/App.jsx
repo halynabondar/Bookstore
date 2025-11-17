@@ -3,11 +3,14 @@ import { Routes, Route } from 'react-router-dom'
 
 import Footer from './components/Footer.jsx'
 import Navbar from './components/Navbar.jsx'
+import RequireAuth from './components/RequireAuth.jsx'
 import Subscribe from './components/Subscribe.jsx'
 import About from './pages/About.jsx'
 import Blog from './pages/Blog.jsx'
+import CartPage from './pages/CartPage.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import Home from './pages/Home.jsx'
+import ProfilePage from './pages/ProfilePage.jsx'
 import Shop from './pages/Shop.jsx'
 import SignInPage from './pages/SignInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
@@ -57,6 +60,22 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/profile"
+            element={
+              <RequireAuth>
+                <ProfilePage />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <RequireAuth>
+                <CartPage />
+              </RequireAuth>
+            }
+          />
         </Routes>
         <Subscribe />
       </main>
