@@ -1,4 +1,4 @@
-\restrict Kxbf9QSQVopXJGzN2huDCYNvwj0XdOHW7JLvj6DgINgkMfCqkbd8nzPRNfvWsEV
+\restrict n5pzFLPJ9tAWT7RhjdeLF1Pr0hOrnMnBa8r0KSIU4fMIuH138vEZ58FdQfDx9nI
 
 -- Dumped from database version 16.10 (Homebrew)
 -- Dumped by pg_dump version 16.10 (Homebrew)
@@ -88,7 +88,9 @@ CREATE TABLE public.users (
     reset_password_sent_at timestamp(6) without time zone,
     remember_created_at timestamp(6) without time zone,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    first_name character varying,
+    last_name character varying
 );
 
 
@@ -175,11 +177,12 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING bt
 -- PostgreSQL database dump complete
 --
 
-\unrestrict Kxbf9QSQVopXJGzN2huDCYNvwj0XdOHW7JLvj6DgINgkMfCqkbd8nzPRNfvWsEV
+\unrestrict n5pzFLPJ9tAWT7RhjdeLF1Pr0hOrnMnBa8r0KSIU4fMIuH138vEZ58FdQfDx9nI
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20251117142459'),
 ('20251113141315'),
 ('20251027113857'),
 ('20250925103443');
