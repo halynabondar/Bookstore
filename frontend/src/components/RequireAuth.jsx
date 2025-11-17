@@ -1,16 +1,23 @@
-import {useUser} from "../hooks/index.js";
-import {Navigate, useLocation} from "react-router-dom";
-import Loading from "./Loading.jsx";
+import PropTypes from 'prop-types'
+import { Navigate, useLocation } from 'react-router-dom'
 
-export default function RequireAuth({children}) {
-    const {user, initializing} = useUser();
-    const location = useLocation();
+import { useUser } from '../hooks/index.js'
 
-    if (initializing) return <Loading />
+import Loading from './Loading.jsx'
 
-    if (!user) {
-        return <Navigate to="/signin" state={{from: location}} replace/>
-    }
+export default function RequireAuth({ children }) {
+  const { user, initializing } = useUser()
+  const location = useLocation()
 
-    return children;
+  if (initializing) return <Loading />
+
+  if (!user) {
+    return <Navigate to="/signin" state={{ from: location }} replace />
+  }
+
+  return children
+}
+
+RequireAuth.propTypes = {
+  children: PropTypes.node.isRequired,
 }
