@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 
 import { useUser } from '../hooks'
 
+import FormMessage from './FormMessage.jsx'
 import GoogleSignIn from './GoogleSignIn.jsx'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000'
@@ -155,7 +156,7 @@ export default function SignInForm() {
           </a>
         </p>
 
-        {message && <p className="mt-4 text-center text-sm">{message}</p>}
+        <FormMessage message={message} />
       </div>
     </section>
   )
