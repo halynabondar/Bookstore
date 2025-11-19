@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
     get '/profile', to: 'users#profile'
+    post '/signup', to: 'users#create'
+    get '/users', to: 'users#index'
   end
 end
