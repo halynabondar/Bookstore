@@ -3,14 +3,7 @@ class Api::UsersController < ApplicationController
 
   def profile
     if @current_user
-      render json: {
-        user: {
-          id: @current_user.id,
-          email: @current_user.email,
-          first_name: @current_user.first_name,
-          last_name: @current_user.last_name
-        }
-      }
+      render json: { user: user_json(@current_user) }
     else
       render json: { error: "Unauthorized" }, status: :unauthorized
     end
@@ -30,14 +23,7 @@ class Api::UsersController < ApplicationController
         same_site: Rails.env.production? ? :none : :lax
       }
 
-      render json: {
-        user: {
-          id: user.id,
-          email: user.email,
-          first_name: user.first_name,
-          last_name: user.last_name
-        }
-      }, status: :created
+      render json: { user: user_json(user) }, status: :created
     else
       render json: { error: user.errors.full_messages }, status: :unprocessable_entity
     end
@@ -48,7 +34,28 @@ class Api::UsersController < ApplicationController
     render json: users
   end
 
+  def update
+    if @current_user.update(user_update_params)
+      render json: { user: user_json(@current_user) }
+    else
+      render json: { error: @current_user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def user_json(user)
+    {
+      id: user.id,
+      email: user.email,
+      first_name: user.first_name,
+      last_name: user.last_name
+    }
+  end
+
+  def user_update_params
+    params.permit(:first_name, :last_name)
+  end
 
   def user_params
     params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
