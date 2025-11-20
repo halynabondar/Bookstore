@@ -9,14 +9,14 @@ class ApplicationController < ActionController::API
     token = cookies.signed[:access_token]
 
     if token.blank?
-      return render json: { error: 'Unauthorized' }, status: :unauthorized
+      return render json: { error: "Unauthorized" }, status: :unauthorized
     end
 
     begin
       decoded = JWT.decode(token, Rails.application.credentials.secret_key_base).first
-      @current_user = User.find(decoded['user_id'])
+      @current_user = User.find(decoded["user_id"])
     rescue JWT::DecodeError, ActiveRecord::RecordNotFound
-      render json: { error: 'Unauthorized' }, status: :unauthorized
+      return render json: { error: "Unauthorized" }, status: :unauthorized
     end
   end
 end

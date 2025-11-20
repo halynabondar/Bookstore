@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  skip_before_action :authenticate_request, only: [:create]
+  skip_before_action :authenticate_request, only: [ :create ]
 
   def profile
     if @current_user
