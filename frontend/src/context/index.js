@@ -1,6 +1,6 @@
 export * from './UserContext.js'
 export * from './UserProvider.jsx'
-// export * from './BooksContext.js'
-// export * from './BooksProvider.jsx'
+export * from './BooksContext.js'
+export * from './BooksProvider.jsx'
 // export * from './CartContext.js'
 // export * from './CartProvider.jsx'
