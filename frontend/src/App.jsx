@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import Footer from './components/Footer.jsx'
@@ -40,13 +39,6 @@ export default function App() {
     'Privacy Policy',
     'FAQ',
   ]
-
-  useEffect(() => {
-    const api = import.meta.env.VITE_API_URL
-    fetch(`${api}/books`)
-      .then(res => res.json())
-      .then(data => console.log('Books:', data))
-  }, [])
 
   return (
     <div className="flex min-h-screen flex-col bg-dark-100 text-textc">
