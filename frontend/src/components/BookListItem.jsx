@@ -9,11 +9,11 @@ export default function BookListItem({
   numberOfReview,
 }) {
   return (
-    <div className="flex h-80 w-60 flex-col rounded-xl ">
+    <div className="flex h-80 w-60 flex-col rounded-xl">
       <img
         src="../../public/books/bookCover.jpg"
         alt={title}
-        className="mb-2 h-full w-full rounded-md object-cover"
+        className="mb-2 size-full rounded-md object-cover"
       />
       <div className="flex gap-2 text-sm">
         {averageReviewScore != null && <span>⭐ {averageReviewScore}</span>}
