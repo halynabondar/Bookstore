@@ -9,7 +9,7 @@ export default function BookListItem({
   numberOfReview,
 }) {
   return (
-    <div className="flex h-80 w-60 flex-col rounded-xl">
+    <div className="flex h-90 w-70 flex-col rounded-xl">
       <img
         src="../../public/books/bookCover.jpg"
         alt={title}

@@ -8,9 +8,13 @@ export default function Shop() {
       <div>
         <HeaderShop />
       </div>
-      <div className="mx-auto flex gap-16 px-4 py-6 sm:px-6 lg:p-10">
-        <Filter />
-        <BooksList />
+      <div className="mx-auto grid grid-cols-4 gap-16 px-4 py-6 sm:px-6 lg:p-10">
+          <div className="col-span-1">
+              <Filter />
+          </div>
+          <div className="col-span-3">
+              <BooksList />
+          </div>
       </div>
     </section>
   )
