@@ -1,8 +1,11 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from "@testing-library/react";
+import App from "./App";
+import { renderWithProviders } from "./test-utils/renderWithProviders";
 
-import App from './App'
+test("renders BookStore logo", () => {
+  renderWithProviders(<App />, { route: "/" });
 
-test('renders Bookstore heading', () => {
-  render(<App />)
-  expect(screen.getByText(/bookstore/i)).toBeInTheDocument()
-})
+  screen.debug(); // <-- тимчасово
+
+  expect(screen.getAllByRole("link", { name: /bookstore/i })[0]).toBeInTheDocument();
+});
