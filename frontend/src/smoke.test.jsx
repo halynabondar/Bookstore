@@ -1,6 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from '@testing-library/react'
 
-test("jest-dom works", () => {
-    render(<div>Hello</div>);
-    expect(screen.getByText("Hello")).toBeInTheDocument();
-});
+test('jest-dom works', () => {
+  render(<div>Hello</div>)
+  expect(screen.getByText('Hello')).toBeInTheDocument()
+})
