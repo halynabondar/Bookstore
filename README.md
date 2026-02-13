@@ -2,14 +2,15 @@
 
 ## Overview
 
-**Bookstore** is a fullstack online bookstore built with **React** (Vite) on the frontend and **Ruby on Rails** (API mode) on the backend.  
-It simulates a modern e-commerce experience where users can browse, purchase, and manage books with ease.
+**BookStore** is a fullstack online bookstore built with **React** (Vite)
+on the frontend and **Ruby on Rails** (API mode) on the backend.  
+It simulates a modern e-commerce experience where users can browse, purchase and manage books with ease.
 
 ## ✨ Features
 
 - 🔍 **Browse catalog** of books by category
 - 📖 **View detailed book information** (title, author, description, price, rating)
-- 🛒 **Shopping cart** — add, remove, and update items
+- 🛒 **Shopping cart** — add, remove and update items
 - 📦 **Order management** — place and track orders
 - 👤 **Authentication & profiles** — sign up, log in and manage user account
 - 🔒 **Secure backend** with JWT authentication
@@ -44,7 +45,7 @@ It simulates a modern e-commerce experience where users can browse, purchase, an
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/yourusername/bookstore.git
+   git clone https://github.com/halynabondar/Bookstore.git
    cd bookstore
    ```
 
