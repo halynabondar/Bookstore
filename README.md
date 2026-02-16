@@ -1,10 +1,11 @@
-# 📚 Bookstore
+# 📚 BookStore
 
 ## Overview
 
 **BookStore** is a fullstack online bookstore built with **React** (Vite)
 on the frontend and **Ruby on Rails** (API mode) on the backend.  
-It simulates a modern e-commerce experience where users can browse, purchase and manage books with ease.
+The application simulates a modern e-commerce platform where users can browse,
+search, purchase and manage books in a seamless and responsive interface.
 
 ## ✨ Features
 
