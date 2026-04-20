@@ -13,7 +13,7 @@ search, purchase and manage books in a seamless and responsive interface.
 - 📖 **View detailed book information** (title, author, description, price, rating)
 - 🛒 **Shopping cart** — add, remove and update items
 - 📦 **Order management** — place and track orders
-- 👤 **Authentication & profiles** — sign up, log in and manage user account
+- 👤 **Authentication & profiles** — sign up, log in and manage a user account
 - 🔒 **Secure backend** with JWT authentication
 - 📱 **Responsive UI** with TailwindCSS and MUI
 
@@ -22,7 +22,6 @@ search, purchase and manage books in a seamless and responsive interface.
 **Frontend:**
 
 - React
-- React Router DOM
 - Vite
 - TailwindCSS
 - MUI
@@ -38,7 +37,7 @@ search, purchase and manage books in a seamless and responsive interface.
 - ESLint
 - Prettier
 
-## Screenshots
+[//]: # (## Screenshots)
 
 ## Getting Started
 
