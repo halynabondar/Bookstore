@@ -9,7 +9,7 @@ export default function BookListItem({
   // numberOfReview,
 }) {
   return (
-    <div className="box-border flex h-96 transition hover:shadow-lg cursor-pointer duration-300 w-72 flex-col rounded-xl p-4 shadow-md">
+    <div className="box-border flex h-96 w-72 cursor-pointer flex-col rounded-xl p-4 shadow-md transition duration-300 hover:shadow-lg">
       <div className="mb-2 flex justify-between">
         <div className="flex gap-2 text-sm">
           {averageReviewScore != null && <span>⭐ {averageReviewScore}</span>}
@@ -22,8 +22,8 @@ export default function BookListItem({
         alt={title}
         className="mb-2 h-60 w-full rounded-md object-contain"
       />
-      <h3 className="text-lg font-semibold line-clamp-1">{title}</h3>
-      <p className="text-sm text-gray-700 ">{author}</p>
+      <h3 className="line-clamp-1 text-lg font-semibold">{title}</h3>
+      <p className="text-sm text-gray-700">{author}</p>
       <p className="mt-auto text-sm font-semibold">{price} kr</p>
     </div>
   )
