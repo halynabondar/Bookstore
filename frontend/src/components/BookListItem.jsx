@@ -6,22 +6,24 @@ export default function BookListItem({
   author,
   price,
   averageReviewScore,
-  numberOfReview,
+  // numberOfReview,
 }) {
   return (
-    <div className="flex h-96 w-72 flex-col rounded-xl">
+    <div className="box-border flex h-96 transition hover:shadow-lg cursor-pointer duration-300 w-72 flex-col rounded-xl p-4 shadow-md">
+      <div className="mb-2 flex justify-between">
+        <div className="flex gap-2 text-sm">
+          {averageReviewScore != null && <span>⭐ {averageReviewScore}</span>}
+          {/*{numberOfReview != null && <span>({numberOfReview} reviews)</span>}*/}
+        </div>
+        <p className="text-xs uppercase text-gray-600">{genre}</p>
+      </div>
       <img
         src="../../public/books/bookCover.jpg"
         alt={title}
-        className="mb-2 size-full rounded-md object-cover"
+        className="mb-2 h-60 w-full rounded-md object-contain"
       />
-      <div className="flex gap-2 text-sm">
-        {averageReviewScore != null && <span>⭐ {averageReviewScore}</span>}
-        {numberOfReview != null && <span>({numberOfReview} reviews)</span>}
-      </div>
-      <p className="mt-2 text-xs uppercase text-gray-600">{genre}</p>
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="text-sm text-gray-700">{author}</p>
+      <h3 className="text-lg font-semibold line-clamp-1">{title}</h3>
+      <p className="text-sm text-gray-700 ">{author}</p>
       <p className="mt-auto text-sm font-semibold">{price} kr</p>
     </div>
   )
@@ -34,5 +36,5 @@ BookListItem.propTypes = {
   icon: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   averageReviewScore: PropTypes.number.isRequired,
-  numberOfReview: PropTypes.number.isRequired,
+  // numberOfReview: PropTypes.number.isRequired,
 }
