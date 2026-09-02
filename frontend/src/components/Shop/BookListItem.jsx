@@ -6,7 +6,7 @@ export default function BookListItem({
   author,
   price,
   averageReviewScore,
-  // numberOfReview,
+  numberOfReview,
 }) {
   return (
     <div className="box-border flex h-96 w-72 cursor-pointer flex-col rounded-xl p-4 shadow-md transition duration-300 hover:shadow-lg">
@@ -18,7 +18,7 @@ export default function BookListItem({
         <p className="text-xs uppercase text-gray-600">{genre}</p>
       </div>
       <img
-        src="../../public/books/bookCover.jpg"
+        src="../../../public/books/bookCover.jpg"
         alt={title}
         className="mb-2 h-60 w-full rounded-md object-contain"
       />
@@ -36,5 +36,5 @@ BookListItem.propTypes = {
   icon: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   averageReviewScore: PropTypes.number.isRequired,
-  // numberOfReview: PropTypes.number.isRequired,
+  numberOfReview: PropTypes.number.isRequired,
 }

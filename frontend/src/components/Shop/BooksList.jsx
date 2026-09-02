@@ -1,6 +1,7 @@
-import { useBooks } from '../hooks/index.js'
+import { useBooks } from '../../hooks/index.js'
 
 import BookListItem from './BookListItem.jsx'
+import Button from "../Button.jsx";
 
 export default function BooksList() {
   const { books } = useBooks()
@@ -16,7 +17,7 @@ export default function BooksList() {
   return (
     <section>
       <h2 className="mb-8 text-4xl text-primary-dark">Books</h2>
-      <div className="flex flex-wrap justify-between gap-8">
+      <div className="box-border flex flex-wrap justify-between gap-8">
         {books.map(book => (
           <BookListItem
             key={book.id}
@@ -30,6 +31,7 @@ export default function BooksList() {
           />
         ))}
       </div>
+        <Button className="mx-auto block mt-10">Show more</Button>
     </section>
   )
 }
