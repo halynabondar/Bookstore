@@ -1,6 +1,6 @@
+import HeaderShop from '../components/HeaderShop.jsx'
 import BooksList from '../components/Shop/BooksList.jsx'
 import Filter from '../components/Shop/Filter.jsx'
-import HeaderShop from '../components/HeaderShop.jsx'
 
 export default function Shop() {
   return (

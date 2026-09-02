@@ -1,7 +1,7 @@
 import { useBooks } from '../../hooks/index.js'
+import Button from '../Button.jsx'
 
 import BookListItem from './BookListItem.jsx'
-import Button from "../Button.jsx";
 
 export default function BooksList() {
   const { books } = useBooks()
@@ -31,7 +31,7 @@ export default function BooksList() {
           />
         ))}
       </div>
-        <Button className="mx-auto block mt-10">Show more</Button>
+      <Button className="mx-auto mt-10 block">Show more</Button>
     </section>
   )
 }

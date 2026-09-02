@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 
 import Button from '../Button.jsx'
+
 import { filterActions, filterSections, filterTitle } from './Filters.js'
 
 function FilterSection({ title, options = [] }) {
