@@ -6,7 +6,7 @@ export default function BookListItem({
   author,
   price,
   averageReviewScore,
-  numberOfReview,
+  // numberOfReview,
 }) {
   return (
     <div className="box-border flex h-96 w-72 cursor-pointer flex-col rounded-xl p-4 shadow-md transition duration-300 hover:shadow-lg">
