@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer.jsx'
 import Navbar from './components/Navbar.jsx'
 import RequireAuth from './components/RequireAuth.jsx'
 import Subscribe from './components/Subscribe.jsx'
+import { navList, footerList } from './data/navigation.js'
 import About from './pages/About.jsx'
 import Blog from './pages/Blog.jsx'
 import CartPage from './pages/CartPage.jsx'
@@ -13,23 +14,6 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import Shop from './pages/Shop.jsx'
 import SignInPage from './pages/SignInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
-
-export const navList = [
-  { name: 'Books', path: '/books' },
-  { name: 'Shop', path: '/shop' },
-  { name: 'About', path: '/about' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact us', path: '/contact' },
-]
-
-export const footerList = [
-  { name: 'My account', path: '/account' },
-  { name: 'Orders', path: '/orders' },
-  { name: 'Tracking list', path: '/tracking' },
-  { name: 'Terms & Conditions', path: '/terms' },
-  { name: 'Privacy Policy', path: '/privacy' },
-  { name: 'FAQ', path: '/faq' },
-]
 
 export default function App() {
   return (
