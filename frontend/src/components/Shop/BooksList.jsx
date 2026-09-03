@@ -31,7 +31,7 @@ export default function BooksList() {
           />
         ))}
       </div>
-      <Button className="mx-auto mt-10 block">Show more</Button>
+      <Button className="mt-10">Show more</Button>
     </section>
   )
 }

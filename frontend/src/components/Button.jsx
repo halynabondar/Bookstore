@@ -12,7 +12,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`rounded-2xl bg-primary-light px-8 py-2 font-bold text-dark-100 ${className}`}
+      className={`rounded-2xl bg-primary-light px-8 py-2 mx-auto block font-bold text-dark-100 ${className}`}
     >
       {children}
     </button>
