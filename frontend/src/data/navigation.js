@@ -1,5 +1,5 @@
 export const navList = [
-  { name: 'Books', path: '/books' },
+  { name: 'Home', path: '/' },
   { name: 'Shop', path: '/shop' },
   { name: 'About', path: '/about' },
   { name: 'Blog', path: '/blog' },

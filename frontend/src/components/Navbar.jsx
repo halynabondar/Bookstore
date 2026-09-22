@@ -48,12 +48,12 @@ export default function Navbar({ navList }) {
     <nav className="sticky top-0 z-50 bg-dark-100 text-primary-dark shadow">
       {/* Compact top row */}
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="font-mono text-lg font-bold text-textc-muted transition duration-300 hover:opacity-80 sm:text-2xl"
         >
           BookStore
-        </a>
+        </Link>
 
         <ul className="hidden items-center md:flex">
           {navList.map(item => (
