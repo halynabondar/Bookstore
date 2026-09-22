@@ -7,6 +7,7 @@ import Subscribe from './components/Subscribe.jsx'
 import { navList, footerList } from './data/navigation.js'
 import About from './pages/About.jsx'
 import Blog from './pages/Blog.jsx'
+import BookDetails from './pages/BookDetails.jsx'
 import CartPage from './pages/CartPage.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import Home from './pages/Home.jsx'
@@ -14,7 +15,6 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import Shop from './pages/Shop.jsx'
 import SignInPage from './pages/SignInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
-import BookDetails from "./pages/BookDetails.jsx";
 
 export default function App() {
   return (

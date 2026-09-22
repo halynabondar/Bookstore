@@ -4,12 +4,10 @@ export default function BookDetails() {
   const { id } = useParams()
 
   return (
-      <section className="p-20">
-        <h1 className="text-4xl font-bold">
-          Book Details
-        </h1>
+    <section className="p-20">
+      <h1 className="text-4xl font-bold">Book Details</h1>
 
-        <p>Book ID: {id}</p>
-      </section>
+      <p>Book ID: {id}</p>
+    </section>
   )
 }
