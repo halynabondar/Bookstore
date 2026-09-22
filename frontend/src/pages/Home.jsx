@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom'
 
 import Container from '../components/Container.jsx'
 import StoreBenefits from '../components/Home/StoreBenefits.jsx'
+import Testimonials from '../components/Home/Testimonials.jsx'
+import StoreStats from '../components/StoreStats.jsx'
 
 export default function Home() {
   const navigate = useNavigate()
@@ -43,10 +45,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary-light py-10 md:py-12">
+      <section className="bg-secondary-light">
         <Container>
           <StoreBenefits />
         </Container>
+      </section>
+      <section className="">
+        <Container>
+          <Testimonials />
+        </Container>
+      </section>
+      <section className="">
+        <StoreStats />
       </section>
     </>
   )
