@@ -14,6 +14,7 @@ import ProfilePage from './pages/ProfilePage.jsx'
 import Shop from './pages/Shop.jsx'
 import SignInPage from './pages/SignInPage.jsx'
 import SignUpPage from './pages/SignUpPage.jsx'
+import BookDetails from "./pages/BookDetails.jsx";
 
 export default function App() {
   return (
@@ -23,7 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/books/:genre" element={<Shop />} />
+          <Route path="/books/:id" element={<BookDetails />} />
           <Route path="/about" element={<About />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<ContactUs />} />
