@@ -21,6 +21,7 @@ export default function BooksList() {
         {books.map(book => (
           <BookListItem
             key={book.id}
+            id={book.id}
             title={book.title}
             genre={book.genre}
             author={book.author}
