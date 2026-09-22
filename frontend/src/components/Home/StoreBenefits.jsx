@@ -34,15 +34,17 @@ const benefits = [
 
 export default function StoreBenefits() {
   return (
-    <section className="grid grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-4">
-      {benefits.map(benefit => (
-        <BenefitItem
-          key={benefit.title}
-          title={benefit.title}
-          description={benefit.description}
-          icon={benefit.icon}
-        />
-      ))}
+    <section className="px-6 py-10 md:py-12">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-4">
+        {benefits.map(benefit => (
+          <BenefitItem
+            key={benefit.title}
+            title={benefit.title}
+            description={benefit.description}
+            icon={benefit.icon}
+          />
+        ))}
+      </div>
     </section>
   )
 }
