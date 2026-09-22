@@ -5,18 +5,20 @@ export default function Subscribe() {
         <h2 className="w-full text-3xl text-dark-100 md:text-4xl lg:w-1/2">
           Subscribe our newsletter for newest books updates
         </h2>
-        <div className="flex w-full gap-4 lg:w-1/2 lg:justify-end">
+        <form className="flex w-full max-w-lg">
           <input
-            placeholder="Tape your e-mail here..."
-            className="w-60 rounded-md border-0 sm:w-72"
-          ></input>
+            type="email"
+            placeholder="Type your e-mail here..."
+            className="min-w-0 flex-1 rounded-l-xl px-4 py-3 outline-none"
+          />
+
           <button
             type="submit"
-            className="rounded-md bg-primary-dark px-4 py-2 font-semibold text-dark-100 transition duration-300 hover:bg-dark-100 hover:text-primary-light"
+            className="rounded-r-xl bg-primary-dark px-6 font-bold text-white"
           >
             Submit
           </button>
-        </div>
+        </form>
       </div>
     </section>
   )
