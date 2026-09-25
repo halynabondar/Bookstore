@@ -45,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary-light">
+      <section>
         <Container>
           <StoreBenefits />
         </Container>
