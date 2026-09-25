@@ -249,7 +249,7 @@ export default function Filter({
               className={
                 action.id === 'apply-filter'
                   ? 'w-full bg-primary text-white transition-all duration-300 hover:bg-primary-dark'
-                  : 'w-full border border-primary bg-white text-primary transition-all duration-300 hover:bg-primary-light hover:text-dark-100'
+                  : 'w-full border border-primary bg-white text-primary transition-all duration-300 hover:bg-primary-dark hover:text-dark-100'
               }
             >
               {action.label}
