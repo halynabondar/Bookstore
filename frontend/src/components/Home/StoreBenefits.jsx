@@ -34,7 +34,7 @@ const benefits = [
 
 export default function StoreBenefits() {
   return (
-    <section className="px-6 py-10 md:py-12">
+    <section className="w-full bg-secondary-light px-6 py-10 md:py-12">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 sm:grid-cols-2 lg:grid-cols-4">
         {benefits.map(benefit => (
           <BenefitItem

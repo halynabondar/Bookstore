@@ -1,8 +1,3 @@
-\restrict Vk0dpKThi5DhbAjZyNJEM68wsYs5mfbGPoramGnqX7wBXb9t3kxzB60T5Jz0J2f
-
--- Dumped from database version 16.10 (Homebrew)
--- Dumped by pg_dump version 16.10 (Homebrew)
-
 SET statement_timeout = 0;
 SET lock_timeout = 0;
 SET idle_in_transaction_session_timeout = 0;
@@ -47,7 +42,8 @@ CREATE TABLE public.books (
     number_of_review integer,
     book_format character varying,
     publisher character varying,
-    publication_year integer
+    publication_year integer,
+    description text
 );
 
 
@@ -180,11 +176,10 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING bt
 -- PostgreSQL database dump complete
 --
 
-\unrestrict Vk0dpKThi5DhbAjZyNJEM68wsYs5mfbGPoramGnqX7wBXb9t3kxzB60T5Jz0J2f
-
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20260925120317'),
 ('20260924163901'),
 ('20260922121140'),
 ('20251117142459'),
