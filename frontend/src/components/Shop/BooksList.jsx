@@ -5,16 +5,18 @@ import { useBooks } from '../../hooks/index.js'
 import Button from '../Button.jsx'
 
 import BookListItem from './BookListItem.jsx'
+import SortDropdown from './SortDropdown.jsx'
 
 const BOOKS_PER_PAGE = 9
 
 export default function BooksList({ filters }) {
   const { books } = useBooks()
   const [visibleCount, setVisibleCount] = useState(BOOKS_PER_PAGE)
+  const [sortBy, setSortBy] = useState('newest')
 
   useEffect(() => {
     setVisibleCount(BOOKS_PER_PAGE)
-  }, [filters])
+  }, [filters, sortBy])
 
   if (!books || books.length === 0) {
     return (
@@ -64,7 +66,23 @@ export default function BooksList({ filters }) {
     )
   })
 
-  const visibleBooks = filteredBooks.slice(0, visibleCount)
+  const sortedBooks = [...filteredBooks].sort((a, b) => {
+    switch (sortBy) {
+      case 'price-low':
+        return Number(a.price) - Number(b.price)
+
+      case 'price-high':
+        return Number(b.price) - Number(a.price)
+
+      case 'rating':
+        return Number(b.average_review_score) - Number(a.average_review_score)
+
+      case 'newest':
+        return new Date(b.publication_date) - new Date(a.publication_date)
+    }
+  })
+
+  const visibleBooks = sortedBooks.slice(0, visibleCount)
 
   const handleShowMore = () => {
     setVisibleCount(prev => prev + BOOKS_PER_PAGE)
@@ -80,13 +98,7 @@ export default function BooksList({ filters }) {
             {filteredBooks.length} books available
           </p>
         </div>
-
-        <select className="rounded-lg border px-4 py-2 text-sm outline-none">
-          <option>Newest</option>
-          <option>Price: low to high</option>
-          <option>Price: high to low</option>
-          <option>Rating</option>
-        </select>
+        <SortDropdown value={sortBy} onChange={setSortBy} />
       </div>
       {filteredBooks.length === 0 ? (
         <p>No books found in this category</p>
