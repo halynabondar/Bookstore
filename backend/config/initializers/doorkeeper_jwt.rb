@@ -4,7 +4,7 @@ Doorkeeper::JWT.configure do
     user = User.find(opts[:resource_owner_id])
 
     {
-      iss: 'BookstoreApp',         # Issuer
+      iss: "BookstoreApp",         # Issuer
       iat: Time.current.to_i,      # Issued at timestamp
       sub: user.id,                # Subject (user id)
       email: user.email            # Extra field

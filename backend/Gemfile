@@ -12,7 +12,7 @@ gem "devise", "~> 4.9"
 gem "doorkeeper", "~> 5.7"
 gem "doorkeeper-jwt"
 gem "omniauth-google-oauth2", "~> 1.1"
-gem 'google-id-token'
+gem "google-id-token"
 
 # Utilities
 gem "rspec-rails", "~> 8.0"
