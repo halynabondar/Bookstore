@@ -1,4 +1,4 @@
-\restrict uBZSJ87ixxSbatixG1eE0EYPFwgCJpvEsWSLRSyD4hkSlyRgtoTesaUXyWP1iKN
+\restrict Vk0dpKThi5DhbAjZyNJEM68wsYs5mfbGPoramGnqX7wBXb9t3kxzB60T5Jz0J2f
 
 -- Dumped from database version 16.10 (Homebrew)
 -- Dumped by pg_dump version 16.10 (Homebrew)
@@ -44,7 +44,10 @@ CREATE TABLE public.books (
     genre character varying,
     cover_image character varying,
     average_review_score double precision,
-    number_of_review integer
+    number_of_review integer,
+    book_format character varying,
+    publisher character varying,
+    publication_year integer
 );
 
 
@@ -177,11 +180,12 @@ CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING bt
 -- PostgreSQL database dump complete
 --
 
-\unrestrict uBZSJ87ixxSbatixG1eE0EYPFwgCJpvEsWSLRSyD4hkSlyRgtoTesaUXyWP1iKN
+\unrestrict Vk0dpKThi5DhbAjZyNJEM68wsYs5mfbGPoramGnqX7wBXb9t3kxzB60T5Jz0J2f
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
+('20260924163901'),
 ('20260922121140'),
 ('20251117142459'),
 ('20251113141315'),

@@ -60,15 +60,48 @@ books = [
   ["Becoming", "Biography", "Michelle Obama", 18, "becoming.jpeg"]
 ]
 
+book_formats = [
+  "Hardcover",
+  "Paperback",
+  "E-book",
+  "Large Print"
+]
+
+publishers = [
+  "Penguin Books",
+  "Vintage",
+  "HarperCollins",
+  "Scribner",
+  "Bloomsbury"
+]
+
+publication_years = [
+  1995,
+  2003,
+  2008,
+  2012,
+  2016,
+  2019,
+  2021,
+  2023,
+  2024,
+  2025
+]
+
 books.each_with_index do |(title, genre, author, price, image), index|
   book = Book.find_or_initialize_by(title: title)
 
   book.genre = genre
-    book.author = author
-    book.price = price
-    book.cover_image = "/books/#{image}"
-    book.average_review_score = (4.0 + (index % 10) * 0.1).round(1)
-    book.number_of_review = 100 + (index * 73)
+  book.author = author
+  book.price = price
+  book.cover_image = "/books/#{image}"
+
+  book.book_format = book_formats[index % book_formats.length]
+  book.publisher = publishers[index % publishers.length]
+  book.publication_year = publication_years[index % publication_years.length]
+
+  book.average_review_score = (4.0 + (index % 10) * 0.1).round(1)
+  book.number_of_review = 100 + (index * 73)
 
   book.save!
 end
