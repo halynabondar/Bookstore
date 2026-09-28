@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
     orders = @current_user.orders
                           .includes(order_items: :book)
                           .order(created_at: :desc)
-  
+
     render json: orders.as_json(
       include: {
         order_items: {
