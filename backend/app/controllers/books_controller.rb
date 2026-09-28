@@ -15,6 +15,13 @@ class BooksController < ApplicationController
   # GET /books/:id
   def show
     book = Book.find(params[:id])
-    render json: book
+
+    render json: book.as_json(
+      include: {
+        reviews: {
+          only: %i[id rating author_name comment created_at]
+        }
+      }
+    )
   end
 end

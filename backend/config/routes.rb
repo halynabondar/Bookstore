@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :books, only: %i[index show]
+  resources :books, only: %i[index show] do
+    resources :reviews, only: :create
+  end
 
   get "/check_books", to: "books#check"
 

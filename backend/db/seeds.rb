@@ -160,3 +160,77 @@ books.each_with_index do |(title, genre, author, price, image), index|
 end
 
 puts "✅ Seeded #{Book.count} books!"
+
+reviews = [
+  {
+    book_title: "The Hobbit",
+    author_name: "Emma Johnson",
+    rating: 5,
+    comment: "A wonderful adventure with memorable characters and a beautifully imagined world."
+  },
+  {
+    book_title: "The Hobbit",
+    author_name: "Daniel Smith",
+    rating: 4,
+    comment: "A charming fantasy classic. The story is engaging and easy to get lost in."
+  },
+  {
+    book_title: "The Hobbit",
+    author_name: "Sophie Brown",
+    rating: 5,
+    comment: "One of my favorite books. I loved the journey, humor, and atmosphere."
+  },
+
+  {
+    book_title: "1984",
+    author_name: "Oliver Wilson",
+    rating: 5,
+    comment: "A powerful and unsettling novel that stays with you long after finishing it."
+  },
+  {
+    book_title: "1984",
+    author_name: "Mia Anderson",
+    rating: 4,
+    comment: "Thought-provoking and surprisingly relevant. Definitely worth reading."
+  },
+
+  {
+    book_title: "Pride and Prejudice",
+    author_name: "Emily Taylor",
+    rating: 5,
+    comment: "Beautifully written, witty, and full of memorable characters."
+  },
+  {
+    book_title: "Pride and Prejudice",
+    author_name: "James Martin",
+    rating: 4,
+    comment: "A classic romance with excellent dialogue and character development."
+  },
+
+  {
+    book_title: "Dune",
+    author_name: "Lucas Moore",
+    rating: 5,
+    comment: "An incredible science fiction world with fascinating politics and characters."
+  },
+  {
+    book_title: "Dune",
+    author_name: "Charlotte Davis",
+    rating: 4,
+    comment: "Dense at first, but once the story gets going it becomes incredibly rewarding."
+  }
+]
+
+Review.delete_all
+
+reviews.each do |review_data|
+  book = Book.find_by!(title: review_data[:book_title])
+
+  book.reviews.create!(
+    author_name: review_data[:author_name],
+    rating: review_data[:rating],
+    comment: review_data[:comment]
+  )
+end
+
+puts "✅ Seeded #{Review.count} reviews!"

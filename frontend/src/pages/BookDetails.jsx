@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+import ReviewForm from '../components/BookDetails/ReviewForm.jsx'
 import Container from '../components/Container'
 import StoreBenefits from '../components/Home/StoreBenefits.jsx'
 import { useBooks } from '../hooks/index.js'
@@ -8,13 +9,21 @@ import { useBooks } from '../hooks/index.js'
 export default function BookDetails() {
   const { id } = useParams()
   const { books } = useBooks()
-  const [quantity, setQuantity] = useState(1)
 
-  const book = books?.find(book => String(book.id) === id)
+  const [book, setBook] = useState(null)
+  const [quantity, setQuantity] = useState(1)
+  const [showAllReviews, setShowAllReviews] = useState(false)
+
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_API_URL}/books/${id}`)
+      .then(res => res.json())
+      .then(data => setBook(data))
+  }, [id])
+  console.log('BOOK WITH REVIEWS:', book)
 
   const relatedBooks = books
-    ?.filter(item => item.id !== book?.id && item.genre === book?.genre)
-    .slice(0, 4)
+    .filter(item => item.id !== book?.id && item.genre === book?.genre)
+    .slice(0, 2)
 
   if (!book) {
     return (
@@ -24,22 +33,28 @@ export default function BookDetails() {
     )
   }
 
-  if (!book) {
-    return (
-      <Container>
-        <div className="py-16">
-          <h1 className="mb-4 text-3xl font-semibold">Book not found</h1>
+  const reviewCount = book.reviews?.length || 0
 
-          <Link to="/shop" className="text-primary hover:underline">
-            Back to shop
-          </Link>
-        </div>
-      </Container>
-    )
+  const averageRating = reviewCount
+    ? (
+        book.reviews.reduce((sum, review) => sum + review.rating, 0) /
+        reviewCount
+      ).toFixed(1)
+    : 0
+
+  const handleReviewAdded = newReview => {
+    setBook(prevBook => ({
+      ...prevBook,
+      reviews: [...(prevBook.reviews || []), newReview],
+    }))
   }
 
+  const visibleReviews = showAllReviews
+    ? book.reviews
+    : book.reviews?.slice(0, 3)
+
   return (
-    <section className="py-10 lg:py-16">
+    <section className="pt-10 lg:pt-16">
       <Container className="mb-12">
         <Link
           to="/shop"
@@ -69,16 +84,16 @@ export default function BookDetails() {
               </p>
             )}
             <div className="mb-8 flex items-center gap-3">
-              <span className="text-lg">⭐ {book.average_review_score}</span>
+              <span className="text-lg">⭐ {averageRating}</span>
               <span className="text-sm text-gray-500">
                 {book.number_of_review} reviews
               </span>
             </div>
-            <div className="mb-8">
-              <p className="mb-2 text-sm text-gray-500">Price</p>
-              <p className="text-3xl font-semibold text-primary-dark">
-                {book.price} kr
-              </p>
+            <div className="mb-8 flex items-baseline gap-2">
+              <span className="text-4xl font-semibold tracking-tight text-primary-dark">
+                {book.price}
+              </span>
+              <span className="text-lg font-medium text-gray-500">kr</span>
             </div>
             <div className="flex flex-wrap items-end gap-4">
               <div>
@@ -117,9 +132,10 @@ export default function BookDetails() {
             </p>
           </div>
         </div>
+
         <div className="mt-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px]">
           {/* LEFT */}
-          <section>
+          <section className="flex flex-col">
             <h2 className="mb-6 text-2xl font-semibold text-primary-dark">
               Book details
             </h2>
@@ -216,8 +232,144 @@ export default function BookDetails() {
                 </Link>
               ))}
             </div>
+            <Link
+              to="/shop"
+              className="mt-5 inline-flex text-sm font-semibold text-primary transition hover:opacity-70"
+            >
+              View more books →
+            </Link>
           </aside>
         </div>
+        <section className="mt-16 border-t border-gray-200 pt-10">
+          <div className="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-semibold text-primary-dark">
+                Customer Reviews
+              </h2>
+
+              <p className="mt-2 text-sm text-gray-500">
+                See what other readers think about this book.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_380px]">
+            <div>
+              <div className="grid gap-10 sm:grid-cols-[180px_1fr]">
+                {/* Rating summary */}
+                <div>
+                  <div className="mb-6">
+                    <div className="flex items-end gap-2">
+                      <p className="text-5xl font-semibold leading-none text-primary-dark">
+                        {averageRating}
+                      </p>
+
+                      <span className="pb-1 text-sm text-gray-400">/ 5</span>
+                    </div>
+
+                    <div className="mt-3 text-lg text-yellow-500">★★★★★</div>
+
+                    <p className="mt-2 text-sm text-gray-500">
+                      Based on {reviewCount} reviews
+                    </p>
+                  </div>
+
+                  <div className="space-y-3">
+                    {[5, 4, 3, 2, 1].map(rating => {
+                      const count =
+                        book.reviews?.filter(review => review.rating === rating)
+                          .length || 0
+
+                      const percentage = reviewCount
+                        ? (count / reviewCount) * 100
+                        : 0
+
+                      return (
+                        <div
+                          key={rating}
+                          className="grid grid-cols-[20px_1fr_20px] items-center gap-2"
+                        >
+                          <span className="text-xs text-gray-500">
+                            {rating}
+                          </span>
+
+                          <div className="h-2 overflow-hidden rounded-full bg-gray-200">
+                            <div
+                              className="h-full rounded-full bg-primary"
+                              style={{ width: `${percentage}%` }}
+                            />
+                          </div>
+
+                          <span className="text-right text-xs text-gray-400">
+                            {count}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* Reviews */}
+                <div>
+                  {book.reviews?.length ? (
+                    <>
+                      <div className="divide-y divide-gray-200">
+                        {visibleReviews.map(review => (
+                          <article key={review.id} className="py-6 first:pt-0">
+                            <div className="mb-3 flex items-start justify-between gap-4">
+                              <div>
+                                <h3 className="font-semibold text-primary-dark">
+                                  {review.author_name}
+                                </h3>
+
+                                <div className="mt-1 text-sm text-yellow-500">
+                                  {'★'.repeat(review.rating)}
+
+                                  <span className="text-gray-300">
+                                    {'★'.repeat(5 - review.rating)}
+                                  </span>
+                                </div>
+                              </div>
+
+                              <time className="shrink-0 text-xs text-gray-400">
+                                {new Date(
+                                  review.created_at
+                                ).toLocaleDateString()}
+                              </time>
+                            </div>
+
+                            <p className="leading-7 text-gray-600">
+                              {review.comment}
+                            </p>
+                          </article>
+                        ))}
+                      </div>
+
+                      {book.reviews.length > 3 && (
+                        <button
+                          type="button"
+                          onClick={() => setShowAllReviews(prev => !prev)}
+                          className="mt-6 font-semibold text-primary transition hover:opacity-70"
+                        >
+                          {showAllReviews
+                            ? 'Show less'
+                            : `Show all reviews (${book.reviews.length})`}
+                        </button>
+                      )}
+                    </>
+                  ) : (
+                    <p className="text-gray-500">
+                      No reviews yet. Be the first to write one.
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Write review */}
+            <ReviewForm bookId={book.id} onReviewAdded={handleReviewAdded} />
+          </div>
+        </section>
       </Container>
       <StoreBenefits />
     </section>
