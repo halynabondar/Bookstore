@@ -4,11 +4,12 @@ import { Link, useParams } from 'react-router-dom'
 import ReviewForm from '../components/BookDetails/ReviewForm.jsx'
 import Container from '../components/Container'
 import StoreBenefits from '../components/Home/StoreBenefits.jsx'
-import { useBooks } from '../hooks/index.js'
+import { useBooks, useCart } from '../hooks/index.js'
 
 export default function BookDetails() {
   const { id } = useParams()
   const { books } = useBooks()
+  const { addToCart } = useCart()
 
   const [book, setBook] = useState(null)
   const [quantity, setQuantity] = useState(1)
@@ -19,7 +20,6 @@ export default function BookDetails() {
       .then(res => res.json())
       .then(data => setBook(data))
   }, [id])
-  console.log('BOOK WITH REVIEWS:', book)
 
   const relatedBooks = books
     .filter(item => item.id !== book?.id && item.genre === book?.genre)
@@ -121,6 +121,7 @@ export default function BookDetails() {
 
               <button
                 type="button"
+                onClick={() => addToCart(book, quantity)}
                 className="h-12 rounded-lg bg-primary px-8 font-semibold text-white transition hover:opacity-90"
               >
                 Add to cart

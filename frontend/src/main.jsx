@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 import App from './App.jsx'
 import './index.css'
-import { BooksProvider, UserProvider } from './context'
+import { BooksProvider, UserProvider, CartProvider } from './context'
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +15,9 @@ createRoot(document.getElementById('root')).render(
       <BrowserRouter>
         <UserProvider>
           <BooksProvider>
-            <App />
+            <CartProvider>
+              <App />
+            </CartProvider>
           </BooksProvider>
         </UserProvider>
       </BrowserRouter>

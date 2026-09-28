@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
-import { useUser } from '../hooks/index.js'
+import { useUser, useCart } from '../hooks/index.js'
 
 export default function Navbar({ navList }) {
   const [open, setOpen] = useState(false)
@@ -14,6 +14,7 @@ export default function Navbar({ navList }) {
   const closeTimeout = useRef(null)
   const navigate = useNavigate()
   const { user, signOut } = useUser()
+  const { cartCount } = useCart()
 
   const [userMenuOpen, setUserMenuOpen] = useState(false)
   const userMenuTimeout = useRef(null)
@@ -118,10 +119,17 @@ export default function Navbar({ navList }) {
           {/* Cart icon */}
           <button
             type="button"
-            className="flex gap-1 transition duration-300 hover:text-primary-light"
+            className="relative flex gap-1 transition duration-300 hover:text-primary-light"
             onClick={() => navigate('/cart')}
+            aria-label={`Cart with ${cartCount} items`}
           >
             <ShoppingCartIcon sx={{ fontSize: 27 }} />
+
+            {cartCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex size-5 items-center justify-center rounded-full border border-white bg-primary text-xs font-semibold text-white">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           {/* User menu */}
