@@ -1,5 +1,5 @@
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import { Navigate, Link } from 'react-router-dom'
+import { Navigate, Link, useNavigate } from 'react-router-dom'
 
 import Container from '../components/Container.jsx'
 import { useCart, useUser } from '../hooks/index.js'
@@ -14,6 +14,7 @@ export default function CartPage() {
     updateQuantity,
     clearCart,
   } = useCart()
+  const navigate = useNavigate()
 
   if (!user) return <Navigate to="/signin" replace />
 
@@ -186,6 +187,7 @@ export default function CartPage() {
 
             <button
               type="button"
+              onClick={() => navigate('/checkout')}
               className="w-full rounded-lg bg-primary px-6 py-3 font-semibold text-white transition hover:opacity-90"
             >
               Checkout

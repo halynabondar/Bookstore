@@ -11,6 +11,8 @@ class User < ApplicationRecord
            foreign_key: :resource_owner_id,
            dependent: :delete_all
 
+  has_many :orders, dependent: :destroy
+
   has_many :access_tokens,
            class_name: "Doorkeeper::AccessToken",
            foreign_key: :resource_owner_id,

@@ -9,6 +9,7 @@ import About from './pages/About.jsx'
 import Blog from './pages/Blog.jsx'
 import BookDetails from './pages/BookDetails.jsx'
 import CartPage from './pages/CartPage.jsx'
+import CheckoutPage from './pages/CheckoutPage.jsx'
 import ContactUs from './pages/ContactUs.jsx'
 import Home from './pages/Home.jsx'
 import ProfilePage from './pages/ProfilePage.jsx'
@@ -30,6 +31,7 @@ export default function App() {
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
           <Route
             path="/profile"
             element={

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :reviews, only: :create
   end
 
+  resources :orders, only: %i[index create]
+
   get "/check_books", to: "books#check"
 
   namespace :api do
