@@ -44,20 +44,13 @@ export default function Home() {
           </Container>
         </div>
       </section>
-
+      <StoreBenefits />
       <section>
-        <Container>
-          <StoreBenefits />
-        </Container>
-      </section>
-      <section className="">
         <Container>
           <Testimonials />
         </Container>
       </section>
-      <section className="">
-        <StoreStats />
-      </section>
+      <StoreStats />
     </>
   )
 }
