@@ -33,10 +33,10 @@ RSpec.describe "Orders", type: :request do
       end
 
       before do
-        post "/api/login", params: {
-          email: user.email,
-          password: "password123"
-        }
+        allow_any_instance_of(ApplicationController)
+          .to receive(:authenticate_request) do |controller|
+          controller.instance_variable_set(:@current_user, user)
+        end
       end
 
       it "returns user's orders" do
@@ -152,10 +152,10 @@ RSpec.describe "Orders", type: :request do
     end
 
     before do
-      post "/api/login", params: {
-        email: user.email,
-        password: "password123"
-      }
+      allow_any_instance_of(ApplicationController)
+        .to receive(:authenticate_request) do |controller|
+        controller.instance_variable_set(:@current_user, user)
+      end
     end
 
     it "creates an order with order items and calculates the total price" do
